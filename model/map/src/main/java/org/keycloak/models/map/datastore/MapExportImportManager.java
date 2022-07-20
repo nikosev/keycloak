@@ -163,6 +163,7 @@ public class MapExportImportManager implements ExportImportManager {
             newRealm.setAccessTokenLifespanForImplicitFlow(rep.getAccessTokenLifespanForImplicitFlow());
         else
             newRealm.setAccessTokenLifespanForImplicitFlow(Constants.DEFAULT_ACCESS_TOKEN_LIFESPAN_FOR_IMPLICIT_FLOW_TIMEOUT);
+        newRealm.setDefaultAudValueForAccessToken(rep.getDefaultAudValueForAccessToken());
 
         if (rep.getSsoSessionIdleTimeout() != null) newRealm.setSsoSessionIdleTimeout(rep.getSsoSessionIdleTimeout());
         else newRealm.setSsoSessionIdleTimeout(1800);
@@ -210,6 +211,8 @@ public class MapExportImportManager implements ExportImportManager {
         if (rep.getActionTokenGeneratedByUserLifespan() != null)
             newRealm.setActionTokenGeneratedByUserLifespan(rep.getActionTokenGeneratedByUserLifespan());
         else newRealm.setActionTokenGeneratedByUserLifespan(newRealm.getAccessCodeLifespanUserAction());
+
+        newRealm.setDefaultAudValueForAccessToken(rep.getDefaultAudValueForAccessToken());
 
         // OAuth 2.0 Device Authorization Grant
         OAuth2DeviceConfig deviceConfig = newRealm.getOAuth2DeviceConfig();
@@ -675,6 +678,7 @@ public class MapExportImportManager implements ExportImportManager {
             realm.setActionTokenGeneratedByAdminLifespan(rep.getActionTokenGeneratedByAdminLifespan());
         if (rep.getActionTokenGeneratedByUserLifespan() != null)
             realm.setActionTokenGeneratedByUserLifespan(rep.getActionTokenGeneratedByUserLifespan());
+        realm.setDefaultAudValueForAccessToken(rep.getDefaultAudValueForAccessToken());
 
         OAuth2DeviceConfig deviceConfig = realm.getOAuth2DeviceConfig();
 
