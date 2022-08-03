@@ -10,6 +10,12 @@ Full Keycloak upstream jira issue can be shown if filtered by Fix version.
 
 Our Keycloak version is working well with PostgreSQL database. For using other SQL databases, text field in database need to be evaluated.
 
+## [Unreleased]
+
+### Fixed
+
+- Fix bug when `client_secret` is not defined in the device authorization request [RCIAM-1089](https://jira.argo.grnet.gr/browse/RCIAM-1089)
+
 ## [16.1.0-2.10] - 2022-07-25
 
 ### Added

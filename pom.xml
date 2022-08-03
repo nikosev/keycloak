@@ -36,7 +36,7 @@
 
     <properties>
         <quarkus.version>2.5.3.Final</quarkus.version>
-        <eosc-kc.version>${project.version}-2.10</eosc-kc.version>
+        <eosc-kc.version>${project.version}-2.11rc1</eosc-kc.version>
 
         <!--
         Performing a Wildfly upgrade? Run the:

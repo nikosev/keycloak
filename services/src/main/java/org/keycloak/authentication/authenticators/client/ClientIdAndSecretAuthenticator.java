@@ -56,6 +56,7 @@ public class ClientIdAndSecretAuthenticator extends AbstractClientAuthenticator 
         String clientSecret = null;
 
         String authorizationHeader = context.getHttpRequest().getHttpHeaders().getRequestHeaders().getFirst(HttpHeaders.AUTHORIZATION);
+        String requestPath = context.getSession().getContext().getUri().getPath();
 
         MediaType mediaType = context.getHttpRequest().getHttpHeaders().getMediaType();
         boolean hasFormData = mediaType != null && mediaType.isCompatible(MediaType.APPLICATION_FORM_URLENCODED_TYPE);
@@ -116,6 +117,12 @@ public class ClientIdAndSecretAuthenticator extends AbstractClientAuthenticator 
 
         // Skip client_secret validation for public client
         if (client.isPublicClient()) {
+            context.success();
+            return;
+        }
+
+        // Skip client_secret validation for Device Code flow
+        if (requestPath.endsWith("/protocol/openid-connect/auth/device")) {
             context.success();
             return;
         }
